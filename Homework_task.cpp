@@ -4,6 +4,7 @@ using namespace std;
 
 class Patient {
 public:
+  string name;
   int age;
   string emailAddress;
   string phoneNumber;
@@ -22,14 +23,14 @@ public:
 };
 
 
-
 int main() {
   Patient patient1;
   Trolley trolley1;
   TrackerDevice tracker1;
 
+  patient1.name = "Callum";
   patient1.age = 18;
-  patient1.emailAddress = "Jones@gmail.com";
+  patient1.emailAddress = "Churches@gmail.com";
   patient1.phoneNumber = "072849382";
   patient1.treated = false;
   patient1.riskStatus = "High";
