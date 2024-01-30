@@ -1,47 +1,43 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-// Example of a simple C++ class
-class Car {
-private:
-    // Private details hidden from external code
-    int speed;
-
+class Patient {
 public:
-    // Data members or attributes
-    string brand;
-    int year;
-
-    // Member functions or methods
-    void accelerate() {
-        // Implementation details hidden
-        speed += 10;
-    }
-
-    void brake() {
-        // Implementation details hidden
-        speed -= 5;
-    }
+  int age;
+  string emailAddress;
+  string phoneNumber;
+  bool treated;
+  string riskStatus;
 };
 
+class Trolley {
+public:
+    string trolleyID;
+};
+
+class TrackerDevice {
+public:
+   string trackerID;
+};
+
+
+
 int main() {
-    // Creating objects of the Car class
-    Car myCar;            // Creating an object without specifying attributes
-    myCar.brand = "Toyota";
-    myCar.year = 2022;
+  Patient patient1;
+  Trolley trolley1;
+  TrackerDevice tracker1;
 
-    Car anotherCar{"Ford", 2020};  // Creating an object with specific attributes
+  patient1.age = 18;
+  patient1.emailAddress = "Jones@gmail.com";
+  patient1.phoneNumber = "072849382";
+  patient1.treated = false;
+  patient1.riskStatus = "High";
 
-    // Using objects and demonstrating abstraction
-    cout << "My car brand: " << myCar.brand << ", Year: " << myCar.year << endl;
-    myCar.accelerate();
-    cout << "Accelerating... Speed: " << myCar.speed << " km/h" << endl;
+  trolley1.trolleyID = "T195";
+  tracker1.trackerID = "TRK035";
 
-    cout << "Another car brand: " << anotherCar.brand << ", Year: " << anotherCar.year << endl;
-    anotherCar.brake();
-    cout << "Applying brakes... Speed: " << anotherCar.speed << " km/h" << endl;
+  displayInformation(patient1, trolley1, tracker1);
 
-    return 0;
-}
+  return 0;
+};
