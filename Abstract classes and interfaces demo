@@ -1,0 +1,75 @@
+#include <iostream>
+
+// Abstract class representing a geometric shape
+class Shape {
+public:
+    // Pure virtual function to calculate area
+    virtual double calculateArea() const = 0;
+
+    // Non-virtual function to display information about the shape
+    void displayInfo() const {
+        std::cout << "This is a shape." << std::endl;
+    }
+};
+
+// Interface for printable objects
+class Printable {
+public:
+    // Pure virtual function to print the object
+    virtual void print() const = 0;
+};
+
+// Concrete class representing a circle
+class Circle : public Shape, public Printable {
+private:
+    double radius;
+
+public:
+    Circle(double r) : radius(r) {}
+
+    // Implementation of calculateArea for Circle
+    double calculateArea() const override {
+        return 3.14159 * radius * radius;
+    }
+
+    // Implementation of print for Circle
+    void print() const override {
+        std::cout << "Circle with radius " << radius << std::endl;
+    }
+};
+
+// Concrete class representing a rectangle
+class Rectangle : public Shape, public Printable {
+private:
+    double width, height;
+
+public:
+    Rectangle(double w, double h) : width(w), height(h) {}
+
+    // Implementation of calculateArea for Rectangle
+    double calculateArea() const override {
+        return width * height;
+    }
+
+    // Implementation of print for Rectangle
+    void print() const override {
+        std::cout << "Rectangle with width " << width << " and height " << height << std::endl;
+    }
+};
+
+int main() {
+    // Example usage
+    Circle circle(5);
+    Rectangle rectangle(4, 6);
+
+    // Display information and calculate area for each shape
+    circle.displayInfo();
+    std::cout << "Area of the circle: " << circle.calculateArea() << std::endl;
+    circle.print();
+
+    rectangle.displayInfo();
+    std::cout << "Area of the rectangle: " << rectangle.calculateArea() << std::endl;
+    rectangle.print();
+
+    return 0;
+}
